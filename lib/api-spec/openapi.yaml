@@ -10,6 +10,10 @@ servers:
 tags:
   - name: health
     description: Health operations
+  - name: queries
+    description: Query submission
+  - name: admin
+    description: Admin operations
 paths:
   /healthz:
     get:
@@ -24,6 +28,104 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+  /queries:
+    post:
+      operationId: submitQuery
+      tags: [queries]
+      summary: Submit a recruiter or product query
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/QueryInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Query"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /admin/login:
+    post:
+      operationId: adminLogin
+      tags: [admin]
+      summary: Admin login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdminLoginInput"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminToken"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /admin/queries:
+    get:
+      operationId: listAdminQueries
+      tags: [admin]
+      summary: List all queries (admin only)
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Query"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /admin/queries/{id}/toggle-replied:
+    patch:
+      operationId: toggleQueryReplied
+      tags: [admin]
+      summary: Toggle query replied status (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Query"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
 components:
   schemas:
     HealthStatus:
@@ -33,4 +135,59 @@ components:
           type: string
       required:
         - status
-
+    Query:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        profile:
+          type: string
+        mobile:
+          type: string
+        email:
+          type: string
+        queryText:
+          type: string
+        replied:
+          type: boolean
+        createdAt:
+          type: string
+      required: [id, name, profile, mobile, email, queryText, replied, createdAt]
+    QueryInput:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+        profile:
+          type: string
+          minLength: 1
+        mobile:
+          type: string
+          minLength: 1
+        email:
+          type: string
+        queryText:
+          type: string
+          minLength: 10
+      required: [name, profile, mobile, email, queryText]
+    AdminLoginInput:
+      type: object
+      properties:
+        password:
+          type: string
+      required: [password]
+    AdminToken:
+      type: object
+      properties:
+        token:
+          type: string
+      required: [token]
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+      required: [error]

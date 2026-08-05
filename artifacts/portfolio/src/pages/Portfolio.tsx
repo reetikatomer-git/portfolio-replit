@@ -5,6 +5,7 @@ import Skills from '@/components/Skills';
 import Experience from '@/components/Experience';
 import Certifications from '@/components/Certifications';
 import Education from '@/components/Education';
+import QueryForm from '@/components/QueryForm';
 import Contact from '@/components/Contact';
 
 export default function Portfolio() {
@@ -18,6 +19,7 @@ export default function Portfolio() {
         <Experience />
         <Certifications />
         <Education />
+        <QueryForm />
         <Contact />
       </main>
     </div>
