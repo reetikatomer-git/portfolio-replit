@@ -11,12 +11,12 @@ export function Scene5() {
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0, opacity: 0, transition: { duration: 0.5 } }}
           transition={{ duration: 1.0, type: 'spring', stiffness: 200, damping: 20, delay: 0.2 }}
-          className="w-[8vw] h-[8vw] rounded-full border-[0.2vw] border-accent flex items-center justify-center mb-[2vw] bg-accent/10 backdrop-blur-md"
+          className="w-[8vw] h-[8vw] rounded-full border-[0.2vw] border-[#06b6d4] flex items-center justify-center mb-[2vw] bg-[#06b6d4]/10 backdrop-blur-md"
         >
           <motion.div
             animate={{ scale: [1, 1.2, 1] }}
             transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            className="w-[1vw] h-[1vw] bg-accent rounded-full shadow-[0_0_1vw_rgba(6,182,212,0.8)]"
+            className="w-[1vw] h-[1vw] bg-[#06b6d4] rounded-full shadow-[0_0_1vw_rgba(6,182,212,0.8)]"
           />
         </motion.div>
 
@@ -26,7 +26,8 @@ export function Scene5() {
             animate={{ y: 0 }}
             exit={{ y: '-100%', opacity: 0, transition: { duration: 0.4 } }}
             transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
-            className="text-[1.8vw] font-display text-text-muted font-light uppercase tracking-[0.2em]"
+            className="text-[1.8vw] text-[#64748b] font-light uppercase tracking-[0.2em]"
+            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
           >
             Explore the portfolio
           </motion.h2>
@@ -39,7 +40,7 @@ export function Scene5() {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="px-[2vw] py-[1vw] bg-white rounded-full shadow-[0_0_2vw_rgba(255,255,255,0.2)]"
         >
-          <span className="font-mono text-[2vw] font-bold text-primary tracking-tight">
+          <span className="text-[2vw] font-bold text-[#020617] tracking-tight" style={{ fontFamily: "'Space Mono', monospace" }}>
             reetikatomer.replit.app
           </span>
         </motion.div>

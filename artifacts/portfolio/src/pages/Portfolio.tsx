@@ -7,6 +7,7 @@ import Certifications from '@/components/Certifications';
 import Education from '@/components/Education';
 import QueryForm from '@/components/QueryForm';
 import Contact from '@/components/Contact';
+import VideoSection from '@/components/video/VideoSection';
 
 export default function Portfolio() {
   return (
@@ -14,6 +15,7 @@ export default function Portfolio() {
       <Navbar />
       <main>
         <Hero />
+        <VideoSection />
         <Summary />
         <Skills />
         <Experience />

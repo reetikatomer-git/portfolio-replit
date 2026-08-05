@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useVideoPlayer } from '@/lib/video';
+import { useVideoPlayer } from '@/lib/video/hooks';
 import { AnimatePresence } from 'framer-motion';
 
 import { Scene1 } from './video_scenes/Scene1';
@@ -43,7 +43,7 @@ export default function VideoTemplate({
   const SceneComponent = SCENE_COMPONENTS[baseSceneKey];
 
   return (
-    <div className="w-full h-screen overflow-hidden relative bg-primary">
+    <div className="w-full h-full overflow-hidden relative" style={{ background: '#020617' }}>
       {/* Background Video */}
       <video
         src={`${import.meta.env.BASE_URL}tech_bg.mp4`}
@@ -55,11 +55,11 @@ export default function VideoTemplate({
       />
 
       {/* Noise Overlay */}
-      <div className="noise-overlay" />
+      <div className="video-noise-overlay" />
 
       {/* Accent Glows */}
-      <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-accent/20 rounded-full blur-[8vw] pointer-events-none" />
-      <div className="absolute bottom-[-20%] right-[-10%] w-[40%] h-[40%] bg-accent-alt/20 rounded-full blur-[8vw] pointer-events-none" />
+      <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full blur-[8vw] pointer-events-none" style={{ background: 'rgba(6,182,212,0.2)' }} />
+      <div className="absolute bottom-[-20%] right-[-10%] w-[40%] h-[40%] rounded-full blur-[8vw] pointer-events-none" style={{ background: 'rgba(139,92,246,0.2)' }} />
 
       {/* Scenes */}
       <AnimatePresence mode="popLayout">

@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
 
 const techStack = [
-  { title: '.NET Core', desc: 'Backend Services', color: 'border-accent text-accent' },
-  { title: 'Azure', desc: 'Cloud Native', color: 'border-accent-alt text-accent-alt' },
+  { title: '.NET Core', desc: 'Backend Services', color: 'border-[#06b6d4] text-[#06b6d4]' },
+  { title: 'Azure', desc: 'Cloud Native', color: 'border-[#8b5cf6] text-[#8b5cf6]' },
   { title: 'SaaS', desc: 'Architecture', color: 'border-white text-white' },
-  { title: 'AI-Assisted', desc: 'Engineering', color: 'border-success text-success' },
+  { title: 'AI-Assisted', desc: 'Engineering', color: 'border-[#10b981] text-[#10b981]' },
 ];
 
 export function Scene3() {
@@ -18,9 +18,10 @@ export function Scene3() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: '-100%', transition: { duration: 0.5, ease: 'circIn' } }}
             transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            className="text-[6vw] leading-none font-display font-bold tracking-tighter text-center"
+            className="text-[6vw] leading-none font-bold tracking-tighter text-center"
+            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
           >
-            MODERN <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-alt">STACK</span>
+            MODERN <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#06b6d4] to-[#8b5cf6]">STACK</span>
           </motion.h2>
         </div>
 
@@ -41,10 +42,10 @@ export function Scene3() {
                 ease: [0.16, 1, 0.3, 1],
                 delay: 0.6 + i * 0.15,
               }}
-              className={`p-[2.5vw] rounded-[1vw] border-l-[0.3vw] ${tech.color} bg-secondary/30 backdrop-blur-md flex flex-col justify-center`}
+              className={`p-[2.5vw] rounded-[1vw] border-l-[0.3vw] ${tech.color} bg-[#1e293b]/30 backdrop-blur-md flex flex-col justify-center`}
             >
-              <h3 className="text-[2.2vw] font-display font-bold mb-[0.5vw] text-white">{tech.title}</h3>
-              <p className="font-mono text-[1vw] text-text-muted uppercase tracking-wider">{tech.desc}</p>
+              <h3 className="text-[2.2vw] font-bold mb-[0.5vw] text-white" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{tech.title}</h3>
+              <p className="text-[1vw] text-[#64748b] uppercase tracking-wider" style={{ fontFamily: "'Space Mono', monospace" }}>{tech.desc}</p>
             </motion.div>
           ))}
         </div>

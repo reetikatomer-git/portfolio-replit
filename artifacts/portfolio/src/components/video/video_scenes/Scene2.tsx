@@ -12,7 +12,8 @@ export function Scene2() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: '-2vw', transition: { duration: 0.4 } }}
             transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
-            className="font-mono text-accent text-[1.5vw] tracking-widest uppercase"
+            className="text-[#06b6d4] text-[1.5vw] tracking-widest uppercase"
+            style={{ fontFamily: "'Space Mono', monospace" }}
           >
             Domain Expertise
           </motion.p>
@@ -24,7 +25,8 @@ export function Scene2() {
             animate={{ y: 0 }}
             exit={{ y: '-100%', opacity: 0, transition: { duration: 0.5, ease: 'circIn' } }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-            className="text-[12vw] leading-none font-display font-extrabold tracking-tighter text-white"
+            className="text-[12vw] leading-none font-extrabold tracking-tighter text-white"
+            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
           >
             18
           </motion.div>
@@ -33,7 +35,8 @@ export function Scene2() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '2vw' }}
             transition={{ duration: 0.8, ease: 'easeOut', delay: 1.0 }}
-            className="text-[5vw] leading-none font-display font-light text-accent-alt"
+            className="text-[5vw] leading-none font-light text-[#8b5cf6]"
+            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
           >
             + YEARS
           </motion.div>
@@ -44,10 +47,10 @@ export function Scene2() {
           animate={{ opacity: 1, clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)' }}
           exit={{ opacity: 0, scale: 0.95 }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 1.2 }}
-          className="bg-secondary/40 backdrop-blur-lg border border-white/10 p-[2vw] rounded-[1.5vw]"
+          className="bg-[#1e293b]/40 backdrop-blur-lg border border-white/10 p-[2vw] rounded-[1.5vw]"
         >
-          <h3 className="text-[2vw] font-display font-medium text-white mb-[0.5vw]">Enterprise Architecture</h3>
-          <p className="text-[1.2vw] text-text-muted font-display">Specializing in the Insurance Domain</p>
+          <h3 className="text-[2vw] font-medium text-white mb-[0.5vw]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Enterprise Architecture</h3>
+          <p className="text-[1.2vw] text-[#64748b]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Specializing in the Insurance Domain</p>
         </motion.div>
       </div>
 
