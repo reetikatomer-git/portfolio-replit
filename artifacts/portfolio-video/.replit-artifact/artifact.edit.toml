@@ -1,0 +1,25 @@
+kind = "video"
+previewPath = "/portfolio-video"
+title = "Reetika Tomer — Portfolio Video"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = ["/portfolio-video"]
+localPort = 3002
+
+[services.development]
+run = "pnpm --filter @workspace/portfolio-video run dev"
+
+[services.production]
+build = ["pnpm", "--filter", "@workspace/portfolio-video", "run", "build"]
+serve = "static"
+publicDir = "artifacts/portfolio-video/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "3002"
+BASE_PATH = "/portfolio-video/"

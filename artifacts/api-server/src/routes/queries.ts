@@ -19,7 +19,10 @@ router.post("/queries", async (req, res): Promise<void> => {
     .values({ name, profile, mobile, email, queryText })
     .returning();
 
-  res.status(201).json(SubmitQueryResponse.parse(inserted));
+  res.status(201).json(SubmitQueryResponse.parse({
+    ...inserted,
+    createdAt: inserted.createdAt instanceof Date ? inserted.createdAt.toISOString() : inserted.createdAt,
+  }));
 });
 
 export default router;

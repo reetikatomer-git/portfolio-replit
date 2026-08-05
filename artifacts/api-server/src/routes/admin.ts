@@ -64,7 +64,11 @@ router.get("/admin/queries", requireAdmin, async (req, res): Promise<void> => {
     .from(queriesTable)
     .orderBy(queriesTable.createdAt);
 
-  res.json(ListAdminQueriesResponse.parse(rows));
+  const serialized = rows.map((r) => ({
+    ...r,
+    createdAt: r.createdAt instanceof Date ? r.createdAt.toISOString() : r.createdAt,
+  }));
+  res.json(ListAdminQueriesResponse.parse(serialized));
 });
 
 // PATCH /admin/queries/:id/toggle-replied
@@ -99,7 +103,10 @@ router.patch(
       .where(eq(queriesTable.id, id))
       .returning();
 
-    res.json(ToggleQueryRepliedResponse.parse(updated));
+    res.json(ToggleQueryRepliedResponse.parse({
+      ...updated,
+      createdAt: updated.createdAt instanceof Date ? updated.createdAt.toISOString() : updated.createdAt,
+    }));
   },
 );
 
