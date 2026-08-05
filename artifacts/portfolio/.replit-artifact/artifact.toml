@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Reetika Tomer — Portfolio"
+description = "A professional portfolio website for Reetika Tomer, a Technical Architect with 18+ years of IT experience specialising in insurance domain, .NET Core, Azure, SaaS, and AI-assisted engineering. The portfolio showcases her career summary, skills, work history, certifications, and education in an elegant, scroll-friendly layout."
+version = "1.0.0"
+id = "artifacts/portfolio"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21113
+
+[services.development]
+run = "pnpm --filter @workspace/portfolio run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/portfolio", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/portfolio/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21113"
+BASE_PATH = "/"
