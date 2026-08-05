@@ -78,7 +78,8 @@ export default function Hero() {
               Contact Me
             </a>
             <a 
-              href="#"
+              href={`${import.meta.env.BASE_URL}Reetika_Tomer_Resume.pdf`}
+              download="Reetika_Tomer_Resume.pdf"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-secondary text-white font-semibold rounded-sm border border-border hover:bg-secondary/80 hover:border-primary/50 transition-all duration-300 w-full sm:w-auto"
             >
               <FileDown size={20} />
