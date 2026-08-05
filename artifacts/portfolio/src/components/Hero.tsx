@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FileDown, Mail, ChevronDown } from 'lucide-react';
+import { FileDown, Mail, ChevronDown, Linkedin } from 'lucide-react';
 
 const specialties = [
   "Technical Architect",
@@ -83,6 +83,15 @@ export default function Hero() {
             >
               <FileDown size={20} />
               Download Resume
+            </a>
+            <a
+              href="https://www.linkedin.com/in/reetika-tomer-2010911b/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#0A66C2]/10 text-[#0A66C2] font-semibold rounded-sm border border-[#0A66C2]/30 hover:bg-[#0A66C2]/20 hover:border-[#0A66C2]/60 transition-all duration-300 w-full sm:w-auto"
+            >
+              <Linkedin size={20} />
+              LinkedIn
             </a>
           </div>
         </motion.div>
