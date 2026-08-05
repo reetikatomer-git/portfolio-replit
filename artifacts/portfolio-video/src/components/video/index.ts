@@ -1,1 +1,1 @@
-export { default as VideoTemplate } from './VideoTemplate';
+export { ReplitLoadingScene } from './ReplitLoadingScene';

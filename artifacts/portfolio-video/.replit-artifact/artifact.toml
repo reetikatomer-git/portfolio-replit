@@ -1,0 +1,28 @@
+kind = "video"
+previewPath = "/portfolio-video/"
+title = "Reetika Tomer — Portfolio Video"
+description = "A 30-second animated portfolio video for Reetika Tomer, Technical Architect with 18+ years of experience. Sleek dark tech aesthetic with 5 scenes: intro, experience highlight, tech stack, theme statement, and outro."
+version = "1.0.0"
+id = "artifacts/portfolio-video"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/portfolio-video/" ]
+localPort = 23465
+
+[services.development]
+run = "pnpm --filter @workspace/portfolio-video run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/portfolio-video", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/portfolio-video/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23465"
+BASE_PATH = "/portfolio-video/"
