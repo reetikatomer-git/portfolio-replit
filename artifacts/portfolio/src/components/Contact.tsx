@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Mail, Phone, Linkedin, ArrowUpRight } from 'lucide-react';
+import { SiWhatsapp } from 'react-icons/si';
 
 export default function Contact() {
   return (
@@ -65,6 +66,21 @@ export default function Contact() {
               </div>
             </a>
             
+            <a
+              href="https://wa.me/918800427941"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-4 p-6 bg-secondary/30 border border-border rounded-lg hover:border-primary/50 hover:bg-secondary/50 transition-all duration-300 group"
+            >
+              <div className="w-12 h-12 bg-background border border-border rounded-full flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                <SiWhatsapp size={20} />
+              </div>
+              <div>
+                <div className="text-xs text-muted-foreground uppercase tracking-widest mb-1">WhatsApp</div>
+                <div className="text-white font-medium">Message me on WhatsApp</div>
+              </div>
+            </a>
+
             <a 
               href="https://linkedin.com/in/reetika-tomer-2010911b/"
               target="_blank"
