@@ -183,32 +183,28 @@ export default function AdminPage() {
               <Circle size={12} className="mr-1 opacity-60" /> Pending
             </Badge>
           ),
-        filterFn: (row, _colId, filterValue) => {
-          if (filterValue === 'all') return true;
-          if (filterValue === 'replied') return row.original.replied;
-          if (filterValue === 'pending') return !row.original.replied;
-          return true;
-        },
         enableSorting: true,
+        enableColumnFilter: false,
       }),
       columnHelper.display({
         id: 'action',
         header: 'Action',
-        cell: (info) => (
-          <Button
-            size="sm"
-            variant={info.row.original.replied ? 'outline' : 'default'}
-            className={`whitespace-nowrap ${
-              info.row.original.replied
-                ? 'border-green-500/40 text-green-400 hover:bg-green-500/10'
-                : ''
-            }`}
-            onClick={() => handleToggleReplied(info.row.original.id)}
-            disabled={toggleRepliedMutation.isPending}
-          >
-            {info.row.original.replied ? 'Mark Pending' : 'Mark Replied'}
-          </Button>
-        ),
+        cell: ({ row }) => {
+          const q = row.original as Query;
+          return (
+            <Button
+              size="sm"
+              variant={q.replied ? 'outline' : 'default'}
+              className={`whitespace-nowrap ${
+                q.replied ? 'border-green-500/40 text-green-400 hover:bg-green-500/10' : ''
+              }`}
+              onClick={() => handleToggleReplied(q.id)}
+              disabled={toggleRepliedMutation.isPending}
+            >
+              {q.replied ? 'Mark Pending' : 'Mark Replied'}
+            </Button>
+          );
+        },
       }),
     ],
     [toggleRepliedMutation.isPending]
